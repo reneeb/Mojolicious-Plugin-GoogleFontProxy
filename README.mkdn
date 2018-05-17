@@ -1,0 +1,105 @@
+[![Build Status](https://travis-ci.org/reneeb/Mojolicious-Plugin-GoogleFontProxy.svg?branch=master)](https://travis-ci.org/reneeb/Mojolicious-Plugin-GoogleFontProxy)
+[![Kwalitee status](http://cpants.cpanauthors.org/dist/Mojolicious-Plugin-GoogleFontProxy.png)](http://cpants.charsbar.org/dist/overview/Mojolicious-Plugin-GoogleFontProxy)
+[![GitHub issues](https://img.shields.io/github/issues/reneeb/Mojolicious-Plugin-GoogleFontProxy.svg)](https://github.com/reneeb/Mojolicious-Plugin-GoogleFontProxy/issues)
+
+# NAME
+
+Mojolicious::Plugin::GoogleFontProxy - a small proxy that can be useful when you embed gists in your website
+
+# VERSION
+
+version 0.01
+
+# SYNOPSIS
+
+    # Mojolicious
+    $self->plugin('GoogleFontProxy');
+
+    # Mojolicious::Lite
+    plugin 'GoogleFontProxy';
+
+# DESCRIPTION
+
+[Mojolicious::Plugin::GoogleFontProxy](https://metacpan.org/pod/Mojolicious::Plugin::GoogleFontProxy) is a [Mojolicious](https://metacpan.org/pod/Mojolicious) plugin.
+
+# METHODS
+
+[Mojolicious::Plugin::GoogleFontProxy](https://metacpan.org/pod/Mojolicious::Plugin::GoogleFontProxy) inherits all methods from
+[Mojolicious::Plugin](https://metacpan.org/pod/Mojolicious::Plugin) and implements the following new ones.
+
+## register
+
+    $plugin->register(Mojolicious->new);
+
+Register plugin in [Mojolicious](https://metacpan.org/pod/Mojolicious) application.
+
+## HOOKS INSTALLED
+
+This plugin adds one `after_render` hook to rewrite all links related to Google webfonts to use the
+proxy routes.
+
+## ROUTES INSTALLED
+
+- `/google/font/*file`
+
+# SEE ALSO
+
+[Mojolicious](https://metacpan.org/pod/Mojolicious), [Mojolicious::Guides](https://metacpan.org/pod/Mojolicious::Guides), [http://mojolicious.org](http://mojolicious.org).
+
+
+
+## Development
+
+The distribution is contained in a Git repository, so simply clone the
+repository
+
+```
+$ git clone http://github.com/reneeb/Mojolicious-Plugin-GoogleFontProxy.git
+```
+
+and change into the newly-created directory.
+
+```
+$ cd Mojolicious-Plugin-GoogleFontProxy
+```
+
+The project uses [`Dist::Zilla`](https://metacpan.org/pod/Dist::Zilla) to
+build the distribution, hence this will need to be installed before
+continuing:
+
+```
+$ cpanm Dist::Zilla
+```
+
+To install the required prequisite packages, run the following set of
+commands:
+
+```
+$ dzil authordeps --missing | cpanm
+$ dzil listdeps --author --missing | cpanm
+```
+
+The distribution can be tested like so:
+
+```
+$ dzil test
+```
+
+To run the full set of tests (including author and release-process tests),
+add the `--author` and `--release` options:
+
+```
+$ dzil test --author --release
+```
+
+# AUTHOR
+
+Renee Baecker &lt;reneeb@cpan.org>
+
+# COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2018 by Renee Baecker.
+
+This is free software, licensed under:
+
+    The Artistic License 2.0 (GPL Compatible)
