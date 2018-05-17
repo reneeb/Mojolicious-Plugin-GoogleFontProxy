@@ -4,7 +4,7 @@ package Mojolicious::Plugin::GoogleFontProxy;
 
 use Mojo::Base 'Mojolicious::Plugin';
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 our $CSS_URL_FORMAT    = 'https://fonts.googleapis.com/css?family=%s';
 our $FONT_URL_FORMAT   = 'https://fonts.gstatic.com/s/%s';
@@ -28,8 +28,8 @@ sub register {
             return if $format ne 'html' && $format ne 'css';
 
             $$content =~ s{
-                https://fonts.googleapis.com/css\?family=(.*?)['"]
-            }{$c->url_for( 'google-proxy-css', file => $1 ) . '"';}xge;
+                https://fonts.googleapis.com/css\?family=(.*?)(['"])
+            }{$c->url_for( 'google-proxy-css', file => $1 ) . $2;}xge;
         }
     );
 
