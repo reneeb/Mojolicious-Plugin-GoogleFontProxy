@@ -8,7 +8,7 @@ Mojolicious::Plugin::GoogleFontProxy - a small proxy that can be useful when you
 
 # VERSION
 
-version 0.01
+version 0.02
 
 # SYNOPSIS
 
