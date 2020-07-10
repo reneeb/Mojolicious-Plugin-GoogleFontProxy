@@ -30,9 +30,9 @@ get '/css' => sub {
 };
 
 my $t = Test::Mojo->new;
-$t->get_ok('/')->status_is(200)->content_like( qr{/google/css/0/Lato:300,400,700,900} );
+$t->get_ok('/')->status_is(200)->content_like( qr{/google/css/2/Lato:300,400,700,900} );
 
-my ($url) = '/google/css/0/Lato:300,400,700,900';
+my ($url) = '/google/css/2/Lato:300,400,700,900';
 $t->get_ok( $url )->status_is(200)->content_like( qr{url\(/google/font/.*?\)} );
 
 my ($font_url, $format) = $t->tx->res->body =~ qr{url\((/google/font/(.*?)/.*?)\)};
@@ -49,7 +49,7 @@ done_testing();
 __DATA__
 @@ index.html.ep
 
-<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css2?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
 
 @@ css.html.ep
 
